@@ -1,6 +1,8 @@
 # PyAnnotate
 Package for annotation of genomic variant files
 
+https://github.com/ionox0/pyannotate
+
 ### Responsibilities
 - Extract relevant details from VCF records
 - Merge records with variant info from EXAC API
