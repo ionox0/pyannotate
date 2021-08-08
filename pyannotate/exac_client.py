@@ -4,6 +4,8 @@ import requests
 
 
 logger = logging.getLogger()
+logger.setLevel(logging.INFO)
+logging.basicConfig(level=logging.INFO)
 
 
 class ExacClient():

@@ -16,7 +16,8 @@ from pyannotate.exac_client import ExacClient
 
 
 logger = logging.getLogger()
-
+logger.setLevel(logging.INFO)
+logging.basicConfig(level=logging.INFO)
 
 class VCFAnnotator():
 
@@ -74,7 +75,7 @@ class VCFAnnotator():
 	}
 
 
-	def __init__(self, batch_request_size=self.BATCH_REQUEST_SIZE):
+	def __init__(self, batch_request_size=1000):
 		"""Create new VCFAnnotator instance"""
 		self.BATCH_REQUEST_SIZE = batch_request_size
 

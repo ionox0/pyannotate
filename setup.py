@@ -64,8 +64,8 @@ setup(
     license="Apache Software License 2.0",
     long_description=readme,
     include_package_data=True,
-    keywords='pyannotate',
-    name='pyannotate',
+    keywords='pyvcfannotate',
+    name='pyvcfannotate',
     packages=find_packages(include=['pyannotate', 'pyannotate.*']),
     package_data={
         "": ['requirements.txt', 'requirements_dev.txt'],
