@@ -2,6 +2,7 @@
 Package for annotation of genomic variant files
 
 https://github.com/ionox0/pyannotate
+https://pypi.org/project/pyvcfannotate/
 
 ### Responsibilities
 - Extract relevant details from VCF records
