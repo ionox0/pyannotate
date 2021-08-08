@@ -10,5 +10,5 @@ https://pypi.org/project/pyvcfannotate/
 - Write output to MAF format
 
 ### Usage:
-- `pip install pyannotate`
-- `annotate_vcf --vcf_path my_variants.vcf`
+- `pip install pyvcfannotate`
+- `pyannotate --vcf_path variants.vcf`
