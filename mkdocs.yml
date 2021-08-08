@@ -1,0 +1,5 @@
+site_name: pyannotate
+#site_url: https://pypi.org/pyannotate
+nav:
+    - Readme: README.md
+theme: readthedocs
