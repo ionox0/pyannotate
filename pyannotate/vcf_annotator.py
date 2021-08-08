@@ -95,7 +95,6 @@ class VCFAnnotator():
 		with open(output_vcf_path, 'w', newline='') as csvfile:
 			writer = csv.writer(csvfile, delimiter='\t')
 			writer.writerow(self.OUT_HEADER)
-
 			for records in self.grouper(self.BATCH_REQUEST_SIZE, vcf_reader):
 				logger.debug(records)
 				records_with_exac = exac_cli.get_exac_info(records)
@@ -109,14 +108,17 @@ class VCFAnnotator():
 
 					# Find most deleterious effect
 					major_effect = '-'
-					if 'vep_annotations' in v['exac_info']:
-						vep_annotations = v['exac_info']['vep_annotations']
-						vep_effects = [e['major_consequence'] for e in vep_annotations]
-						if len(vep_effects):
-							major_effect = vep_effects[0]
-							for e in vep_effects:
-								if self.RANKED_CONSEQUENCES[e] < self.RANKED_CONSEQUENCES[major_effect]:
-									major_effect = e
+					try:
+						if 'vep_annotations' in v['exac_info']:
+							vep_annotations = v['exac_info']['vep_annotations']
+							vep_effects = [e['major_consequence'] for e in vep_annotations]
+							if len(vep_effects):
+								major_effect = vep_effects[0]
+								for e in vep_effects:
+									if self.RANKED_CONSEQUENCES[e] < self.RANKED_CONSEQUENCES[major_effect]:
+										major_effect = e
+					except KeyError:
+						logger.error('Missing effect for variant {}'.format(k))
 
 					inf = v['vcf_info']
 					inf_info = inf.INFO
